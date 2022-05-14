@@ -9,7 +9,7 @@ import { IoCaretBackCircleSharp } from "react-icons/io5";
 
 const date = new Date().toLocaleDateString().split(",")[0].replace("/", ",");
 const comments = [];
-const likes = 0
+const likes = [];
 
 const NewBlog = () => {
   const { currentUser } = useContext(AuthContext);
@@ -31,7 +31,7 @@ const NewBlog = () => {
       imgUrl,
       content,
       JSON.stringify(comments),
-      likes
+      JSON.stringify(likes)
     );
     navigate("/");
   };

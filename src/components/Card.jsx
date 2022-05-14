@@ -10,7 +10,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function BlogCard({ ...blog }) {
   const navigate = useNavigate();
-  const { displayName,
+  const {
+    displayName,
     date,
     title,
     photoURL,
@@ -18,17 +19,17 @@ export default function BlogCard({ ...blog }) {
     content,
     id,
     comments,
-    likes,} = blog;
+    likes,
+  } = blog;
 
-    let commentsNum;
-    let likesNum = 0;
-    if(comments){
-      commentsNum = JSON.parse(comments).length;
-    }else {
-      commentsNum = 0;
-    }
-    // 
-  
+  let commentsNum;
+  let likesNum = 0;
+  if (comments) {
+    commentsNum = JSON.parse(comments).length;
+  } else {
+    commentsNum = 0;
+  }
+  //
 
   const navigateDetails = () => {
     navigate(`/details/${id}`, { state: { blog } });
@@ -52,7 +53,11 @@ export default function BlogCard({ ...blog }) {
             sx={{ bgcolor: "black", position: "static" }}
             aria-label="recipe"
           >
-            {photoURL ? (<img src={photoURL} alt="photoURL" style={{width:'40px'}}/>) : displayName[0]}
+            {photoURL ? (
+              <img src={photoURL} alt="photoURL" style={{ width: "40px" }} />
+            ) : (
+              displayName[0]
+            )}
           </Avatar>
         }
         title={displayName}
