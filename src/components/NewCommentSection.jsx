@@ -9,7 +9,7 @@ const commentDate = new Date()
   .split(",")[0]
   .replace("/", ",");
 
-const NewCommentCard = ({
+const NewCommentSection = ({
   comments,
   handleUpdateComments,
   handleCommentAdderToggle,
@@ -83,7 +83,7 @@ const NewCommentCard = ({
   );
 };
 
-export default NewCommentCard;
+export default NewCommentSection;
 
 const StyledStack = styled(Stack)`
   display: flex;

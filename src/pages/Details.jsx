@@ -10,7 +10,7 @@ import { IoCaretBackCircleSharp } from "react-icons/io5";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeCommentIcon from "@mui/icons-material/ModeComment";
 import { DeleteBlog, UpdateBlogDB } from "../utils/firebase";
-import NewCommentCard from "../components/NewCommentCard";
+import NewCommentSection from "../components/NewCommentSection";
 
 const About = () => {
   const { currentUser } = useContext(AuthContext);
@@ -129,7 +129,7 @@ const About = () => {
         </StyledButton>
       </StyledBox>
       {isCommentAdderOpen && (
-        <NewCommentCard
+        <NewCommentSection
           comments={comments}
           handleUpdateComments={handleUpdateComments}
           handleCommentAdderToggle={handleCommentAdderToggle}
