@@ -16,7 +16,7 @@ const About = () => {
           I'm currently learning Front-End Development Languages.
           I have already known JS, ReactJS, Python, HTML5, CSS3.
           
-            Send email: mustafaihsankabakcili@gmail.com
+          Send email: mustafaihsankabakcili@gmail.com
       </p>
     </StyledContainer>
   );

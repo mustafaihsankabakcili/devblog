@@ -21,7 +21,7 @@ export default function BlogCard({ ...blog }) {
     comments,
     likes,
   } = blog;
-
+//////////////////////////////////////////
   let commentsNum;
   let likesNum = 0;
   if (comments) {
@@ -29,7 +29,8 @@ export default function BlogCard({ ...blog }) {
   } else {
     commentsNum = 0;
   }
-  //
+//////////////////////////////////////////
+
 
   const navigateDetails = () => {
     navigate(`/details/${id}`, { state: { blog } });
