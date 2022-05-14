@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { Button, styled } from "@mui/material";
-import { UpdateBlogDB } from "../utils/firebase";
 import { AuthContext } from "../contexts/AuthContext";
 
 const commentDate = new Date()
@@ -11,39 +10,22 @@ const commentDate = new Date()
   .replace("/", ",");
 
 const NewCommentCard = ({
-  blog,
+  comments,
+  handleUpdateComments,
   handleCommentAdderToggle,
   isCommentAdderOpen,
 }) => {
   const { currentUser } = useContext(AuthContext);
-  const [newBlog, setNewBlog] = useState(blog);
   const [commentTitle, setCommentTitle] = useState("");
   const [comment, setComment] = useState("");
 
-  const {
-    displayName,
-    date,
-    title,
-    photoURL,
-    imgUrl,
-    content,
-    id,
-    uid,
-    comments,
-    likes,
-  } = blog;
-
-  useEffect(() => {
-    first
-  
-    
-  }, [third])
 
   // Burda kaldim
   const handleNewComment = (e) => {
     e.preventDefault();
 
     const oldComments = JSON.parse(comments);
+    console.log(oldComments);
     oldComments.push([
       currentUser.displayName,
       currentUser.uid,
@@ -52,20 +34,7 @@ const NewCommentCard = ({
       commentTitle,
       comment,
     ]);
-    blog.comments = JSON.stringify(oldComments);
-
-    UpdateBlogDB(
-      displayName,
-      date,
-      title,
-      photoURL,
-      imgUrl,
-      content,
-      id,
-      uid,
-      comments,
-      likes
-    );
+    handleUpdateComments(JSON.stringify(oldComments));
 
     setCommentTitle("");
     setComment("");
@@ -136,7 +105,6 @@ const StyledButton = styled(Button)`
   background-color: #06ffc3;
   color: white;
   width: 200px;
-
   &:hover {
     background-color: #e7007e;
     color: white;

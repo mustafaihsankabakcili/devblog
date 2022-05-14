@@ -9,19 +9,31 @@ import { RiQuillPenFill } from "react-icons/ri";
 import { IoCaretBackCircleSharp } from "react-icons/io5";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeCommentIcon from "@mui/icons-material/ModeComment";
-import { DeleteBlog } from "../utils/firebase";
+import { DeleteBlog, UpdateBlogDB } from "../utils/firebase";
 import NewCommentCard from "../components/NewCommentCard";
 
 const About = () => {
   const { currentUser } = useContext(AuthContext);
-  // console.log(currentUser);
+  const [isCommentAdderOpen, setIsCommentAdderOpen] = useState(false);
 
   const location = useLocation();
   const blog = location.state.blog;
-  const { displayName, date, title, imgUrl, content, id, uid, comments, likes } = blog;
+
+  const {
+    displayName,
+    date,
+    title,
+    photoURL,
+    imgUrl,
+    content,
+    id,
+    uid,
+    comments,
+    likes,
+  } = blog;
+
   const DUMMY_COMMENTS = [1, 2, 3];
 
-  const [isCommentAdderOpen, setIsCommentAdderOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -34,6 +46,22 @@ const About = () => {
       navigate(`/updateblog/${id}`, { state: { blog } });
     }
   };
+
+  const handleUpdateComments = (updatedComments) => {
+    blog.comments = updatedComments;
+    UpdateBlogDB(
+      displayName,
+      date,
+      title,
+      photoURL,
+      imgUrl,
+      content,
+      id,
+      uid,
+      updatedComments,
+      likes
+    );
+  }
 
   const handleDeleteBlog = () => {
     if (currentUser.uid === uid) {
@@ -100,7 +128,14 @@ const About = () => {
           Like
         </StyledButton>
       </StyledBox>
-      {isCommentAdderOpen && <NewCommentCard blog={blog} handleCommentAdderToggle={handleCommentAdderToggle} isCommentAdderOpen={isCommentAdderOpen}/>}
+      {isCommentAdderOpen && (
+        <NewCommentCard
+          comments={comments}
+          handleUpdateComments={handleUpdateComments}
+          handleCommentAdderToggle={handleCommentAdderToggle}
+          isCommentAdderOpen={isCommentAdderOpen}
+        />
+      )}
 
       {!DUMMY_COMMENTS ? (
         <p>There is no comments to show!</p>
@@ -126,11 +161,9 @@ const StyledContainer = styled(Container)`
   gap: 15px;
   background-color: #000000;
   border-radius: 20px;
-
   h2 {
     color: #06ffc3;
   }
-
   img {
     width: 65%;
     border-radius: 20px;
@@ -151,7 +184,6 @@ const StyledButton = styled(Button)`
   background-color: #06ffc3;
   color: white;
   width: 200px;
-
   &:hover {
     background-color: #e7007e;
     color: white;

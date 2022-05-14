@@ -10,7 +10,25 @@ import { useNavigate } from "react-router-dom";
 
 export default function BlogCard({ ...blog }) {
   const navigate = useNavigate();
-  const { displayName, date, photoURL, title, imgUrl, content, id} = blog;
+  const { displayName,
+    date,
+    title,
+    photoURL,
+    imgUrl,
+    content,
+    id,
+    comments,
+    likes,} = blog;
+
+    let commentsNum;
+    let likesNum = 0;
+    if(comments){
+      commentsNum = JSON.parse(comments).length;
+    }else {
+      commentsNum = 0;
+    }
+    // 
+  
 
   const navigateDetails = () => {
     navigate(`/details/${id}`, { state: { blog } });
@@ -60,14 +78,14 @@ export default function BlogCard({ ...blog }) {
         >
           <FavoriteIcon />
         </IconButton>
-        <p>0</p>
+        <p>{likesNum}</p>
         <IconButton
           aria-label="share"
           sx={{ position: "static", color: "#E7007E" }}
         >
           <ModeCommentIcon />
         </IconButton>
-        <p>0</p>
+        <p>{commentsNum}</p>
       </CardActions>
     </Card>
   );
