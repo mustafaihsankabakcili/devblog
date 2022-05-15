@@ -38,7 +38,7 @@ export default function Navbar() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <StyledNavLink style={{ color: "#E7007E" }} to="/">
+            <StyledNavLink style={{ color: "#E7007E" }} to="/devblog/">
               <img
                 src={db}
                 alt="db_logo"
@@ -58,14 +58,14 @@ export default function Navbar() {
           ></Typography>
           {!currentUser ? (
             <StyledBox>
-              <StyledNavLink to="/">HOME</StyledNavLink>
-              <StyledNavLink to="/about">ABOUT</StyledNavLink>
-              <StyledNavLink to="/login">LOGIN</StyledNavLink>
-              <StyledNavLink to="/register">REGISTER</StyledNavLink>
+              <StyledNavLink to="/devblog/">HOME</StyledNavLink>
+              <StyledNavLink to="/devblog/about">ABOUT</StyledNavLink>
+              <StyledNavLink to="/devblog/login">LOGIN</StyledNavLink>
+              <StyledNavLink to="/devblog/register">REGISTER</StyledNavLink>
             </StyledBox>
           ) : (
             <StyledBox>
-              <StyledNavLink to="/profile">
+              <StyledNavLink to="/devblog/profile">
                 {currentUser.displayName}
               </StyledNavLink>
 
