@@ -98,28 +98,28 @@ export default function Navbar() {
                 style={{ marginTop: "50px" }}
               >
                 <Link
-                  to="/"
+                  to="/devblog/"
                   style={{ color: "#E7007E", textDecoration: "none" }}
                 >
                   <MenuItem onClick={handleClose}>Home</MenuItem>
                 </Link>
 
                 <Link
-                  to="/profile"
+                  to="/devblog/profile"
                   style={{ color: "#E7007E", textDecoration: "none" }}
                 >
                   <MenuItem onClick={handleClose}>My Profile</MenuItem>
                 </Link>
 
                 <Link
-                  to="/newblog"
+                  to="/devblog/newblog"
                   style={{ color: "#E7007E", textDecoration: "none" }}
                 >
                   <MenuItem onClick={handleClose}>New Blog</MenuItem>
                 </Link>
 
                 <Link
-                  to="/newblog"
+                  to="/devblog/"
                   onClick={() => logOut(navigate)}
                   style={{ color: "#E7007E", textDecoration: "none" }}
                 >
