@@ -165,7 +165,7 @@ const About = () => {
       )}
 
       {commentsArr.length === 0 ? (
-        <p>There are no comments to show!</p>
+        <p> There are no comments to show!</p>
       ) : (
         <Comments commentsArr={commentsArr} />
       )}
@@ -192,6 +192,10 @@ const StyledContainer = styled(Container)`
   img {
     width: 65%;
     border-radius: 20px;
+  }
+
+  p{
+    color: white;
   }
 `;
 

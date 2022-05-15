@@ -25,7 +25,7 @@ const NewBlog = () => {
     AddBlog(
       currentUser.displayName,
       currentUser.uid,
-      currentUser.photoURL,
+      currentUser.photoURL ? currentUser.photoURL : '',
       date,
       title,
       imgUrl,
@@ -33,11 +33,11 @@ const NewBlog = () => {
       JSON.stringify(comments),
       JSON.stringify(likes)
     );
-    navigate("/");
+    navigate("/devblog/");
   };
 
   const handleBack = () => {
-    navigate('/');
+    navigate('/devblog/');
   };
 
   return (

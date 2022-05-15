@@ -8,7 +8,13 @@ const CommentCard = ({ comment }) => {
 
   return (
     <StyledBox>
-      <img src={photoURL} alt="comment_owner" />
+      {photoURL ? (
+        <img src={photoURL} alt="comment_owner" />
+      ) : (
+        <StyledAvatar>
+          <h3>{displayName[0]}</h3>
+        </StyledAvatar>
+      )}
       <h4>{displayName}</h4>
       <h4>{commentTitle}</h4>
       <p>{commentText}</p>
@@ -35,6 +41,10 @@ const StyledBox = styled(Box)`
     border-radius: 50px;
   }
 
+  h3 {
+    color: white;
+  }
+
   h4 {
     color: #06ffc3;
   }
@@ -43,6 +53,16 @@ const StyledBox = styled(Box)`
     color: white;
     font-size: 12px;
   }
+`;
+
+const StyledAvatar = styled(Box)`
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #1b262c;
 `;
 
 export default CommentCard;
