@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import React from "react";
 
 const About = () => {
@@ -10,14 +10,12 @@ const About = () => {
         src="https://www.technologistan.pk/wp-content/uploads/2022/01/Bootcamp-MOOC-Learning-Tech-Coding-Programming-Dice-1024x640-1.png"
         alt="languages"
       />
-      <p style={{ color: "#ffffff" }}>
-          About Frontend Developer Mustafa Ihsan Kabakcili
-        
-          I'm currently learning Front-End Development Languages.
-          I have already known JS, ReactJS, Python, HTML5, CSS3.
-          
-          Send email: mustafaihsankabakcili@gmail.com
-      </p>
+      <StyledBox>
+        <h4>About Frontend Developer Mustafa Ihsan Kabakcili</h4>
+        <p>I'm currently learning Front-End Development Languages.</p>
+        <p>I have already known JS, ReactJS, Python, HTML5, CSS3.</p>
+        <p> Send email: mustafaihsankabakcili@gmail.com</p>
+      </StyledBox>
     </StyledContainer>
   );
 };
@@ -40,8 +38,27 @@ const StyledContainer = styled(Container)`
     color: #06ffc3;
   }
 
+  h4 {
+    color: #06ffc3;
+  }
+
   img {
     width: 65%;
     border-radius: 20px;
   }
+
+  p {
+    color: #ffffff;
+  }
+`;
+
+const StyledBox = styled(Box)`
+  margin: auto;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 90%;
 `;
