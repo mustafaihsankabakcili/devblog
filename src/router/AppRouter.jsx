@@ -17,22 +17,22 @@ const AppRouter = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="https://mustafaihsankabakcili.github.io/" element={<Dashboard />} />
-        <Route path="https://mustafaihsankabakcili.github.io/about" element={<About />} />
-        <Route path="https://mustafaihsankabakcili.github.io/login" element={<Login />} />
-        <Route path="https://mustafaihsankabakcili.github.io/register" element={<Register />} />
+        <Route path="/devblog/" element={<Dashboard />} />
+        <Route path="/devblog/about" element={<About />} />
+        <Route path="/devblog/login" element={<Login />} />
+        <Route path="/devblog/register" element={<Register />} />
 
         {/* Private Router */}
-        <Route path="https://mustafaihsankabakcili.github.io/newblog" element={<PrivateRouter />}>
+        <Route path="/devblog/newblog" element={<PrivateRouter />}>
          <Route path="" element={<NewBlog />} />
         </Route>
-        <Route path="https://mustafaihsankabakcili.github.io/profile" element={<PrivateRouter />}>
+        <Route path="/devblog/profile" element={<PrivateRouter />}>
          <Route path="" element={<Profile />} />
         </Route>
-        <Route path="https://mustafaihsankabakcili.github.io/updateblog/:id" element={<PrivateRouter />}>
+        <Route path="/devblog/updateblog/:id" element={<PrivateRouter />}>
          <Route path="" element={<UpdateBlog />} />
         </Route>
-        <Route path="https://mustafaihsankabakcili.github.io/details/:id" element={<PrivateRouter />}>
+        <Route path="/devblog/details/:id" element={<PrivateRouter />}>
          <Route path="" element={<Details />} />
         </Route>
         
