@@ -20,7 +20,6 @@ const NewCommentSection = ({
   const [comment, setComment] = useState("");
 
 
-  // Burda kaldim
   const handleNewComment = (e) => {
     e.preventDefault();
 
@@ -39,7 +38,7 @@ const NewCommentSection = ({
     setComment("");
     handleCommentAdderToggle(!isCommentAdderOpen);
   };
-  // Burda kaldim
+
 
   return (
     <StyledStack

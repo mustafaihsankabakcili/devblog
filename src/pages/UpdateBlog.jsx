@@ -48,7 +48,7 @@ const UpdateBlog = () => {
         likes
       );
     }
-    navigate("/");
+    navigate("/devblog/");
   };
 
   const handleBack = () => {

@@ -32,7 +32,7 @@ export const createUser = async (email, password, displayName, navigate) => {
       displayName: displayName,
     });
 
-    navigate("/");
+    navigate("/devblog/");
   } catch (err) {
     alert(err.message);
   }
@@ -45,7 +45,7 @@ export const signIn = async (email, password, navigate) => {
       email,
       password
     );
-    navigate("/");
+    navigate("/devblog/");
   } catch (err) {
     alert(err);
   }
@@ -53,7 +53,7 @@ export const signIn = async (email, password, navigate) => {
 
 export const logOut = (navigate) => {
   signOut(auth);
-  navigate('/');
+  navigate('/devblog/');
 };
 
 export const userObserver = (setCurrentUser) => {
@@ -74,7 +74,7 @@ export const signInGoogleProvider = (navigate) => {
   signInWithPopup(auth, provider)
     .then((result) => {
       console.log(result);
-      navigate('/');
+      navigate('/devblog/');
     })
     .catch((error) => {
       console.log(error);

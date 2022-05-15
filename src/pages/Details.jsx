@@ -44,7 +44,7 @@ const About = () => {
 
   const handleUpdateBlog = () => {
     if (currentUser.uid === uid) {
-      navigate(`/updateblog/${id}`, { state: { blog } });
+      navigate(`/devblog/updateblog/${id}`, { state: { blog } });
     }
   };
 

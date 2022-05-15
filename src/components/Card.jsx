@@ -29,7 +29,7 @@ export default function BlogCard({ ...blog }) {
 
 
   const navigateDetails = () => {
-    navigate(`/details/${id}`, { state: { blog } });
+    navigate(`/devblog/details/${id}`, { state: { blog } });
   };
 
   return (
