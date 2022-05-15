@@ -1,4 +1,5 @@
 {
+  "homepage": "http://mustafaihsankabakcili.github.io/devblog",
   "name": "devblog",
   "version": "0.1.0",
   "private": true,
@@ -13,6 +14,7 @@
     "axios": "^0.27.2",
     "dotenv": "^16.0.0",
     "firebase": "^9.6.11",
+    "gh-pages": "^4.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
@@ -26,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
