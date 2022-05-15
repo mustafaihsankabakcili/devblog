@@ -1,4 +1,4 @@
-import AppRouter from "./app-rooter/AppRouter";
+import AppRouter from "./router/AppRouter";
 import { Box, styled } from "@mui/material";
 import AuthContextProvider from "./contexts/AuthContext";
 import BlogContextProvider from "./contexts/BlogContext";
