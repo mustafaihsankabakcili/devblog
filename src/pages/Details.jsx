@@ -11,6 +11,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeCommentIcon from "@mui/icons-material/ModeComment";
 import { DeleteBlog, UpdateBlogDB } from "../utils/firebase";
 import NewCommentSection from "../components/NewCommentSection";
+import Comments from "../components/Comments";
 
 const About = () => {
   const { currentUser } = useContext(AuthContext);
@@ -32,8 +33,8 @@ const About = () => {
     likes,
   } = blog;
 
-  const DUMMY_COMMENTS = [1, 2, 3];
-
+  const commentsArr = JSON.parse(comments);
+  const likesArr = JSON.parse(likes);
 
   const navigate = useNavigate();
 
@@ -61,7 +62,7 @@ const About = () => {
       updatedComments,
       likes
     );
-  }
+  };
 
   const handleDeleteBlog = () => {
     if (currentUser.uid === uid) {
@@ -72,6 +73,28 @@ const About = () => {
 
   const handleCommentAdderToggle = () => {
     setIsCommentAdderOpen(!isCommentAdderOpen);
+  };
+
+  const handleLikes = (currentUserID) => {
+    if (likesArr.includes(currentUserID)) {
+      alert("You have already liked!");
+    } else {
+      likesArr.push(currentUserID);
+      const newLikes = JSON.stringify(likesArr);
+      blog.likes = newLikes;
+      UpdateBlogDB(
+        displayName,
+        date,
+        title,
+        photoURL,
+        imgUrl,
+        content,
+        id,
+        uid,
+        comments,
+        newLikes
+      );
+    }
   };
 
   return (
@@ -123,7 +146,11 @@ const About = () => {
           Comment
         </StyledButton>
 
-        <StyledButton variant="contained" type="button">
+        <StyledButton
+          variant="contained"
+          type="button"
+          onClick={() => handleLikes(currentUser.uid)}
+        >
           <FavoriteIcon />
           Like
         </StyledButton>
@@ -137,12 +164,10 @@ const About = () => {
         />
       )}
 
-      {!DUMMY_COMMENTS ? (
-        <p>There is no comments to show!</p>
+      {commentsArr.length === 0 ? (
+        <p>There are no comments to show!</p>
       ) : (
-        DUMMY_COMMENTS?.map((comment) => (
-          <p style={{ color: "#FFFFFF" }}>{comment}</p>
-        ))
+        <Comments commentsArr={commentsArr} />
       )}
     </StyledContainer>
   );
@@ -178,12 +203,14 @@ const StyledBox = styled(Box)`
   justify-content: center;
   align-items: center;
   gap: 15px;
+  width: 90%;
 `;
 
 const StyledButton = styled(Button)`
   background-color: #06ffc3;
   color: white;
   width: 200px;
+  position: static;
   &:hover {
     background-color: #e7007e;
     color: white;

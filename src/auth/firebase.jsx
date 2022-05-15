@@ -45,7 +45,6 @@ export const signIn = async (email, password, navigate) => {
       email,
       password
     );
-    console.log(userCredential);
     navigate("/");
   } catch (err) {
     alert(err);

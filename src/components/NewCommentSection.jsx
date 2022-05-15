@@ -25,7 +25,6 @@ const NewCommentSection = ({
     e.preventDefault();
 
     const oldComments = JSON.parse(comments);
-    console.log(oldComments);
     oldComments.push([
       currentUser.displayName,
       currentUser.uid,
@@ -89,7 +88,7 @@ const StyledStack = styled(Stack)`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 50%;
+  min-width: 90%;
   padding: 15px;
   height: fit-content;
   background-color: #ffffff;

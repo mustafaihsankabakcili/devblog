@@ -21,15 +21,11 @@ export default function BlogCard({ ...blog }) {
     comments,
     likes,
   } = blog;
-//////////////////////////////////////////
-  let commentsNum;
-  let likesNum = 0;
-  if (comments) {
-    commentsNum = JSON.parse(comments).length;
-  } else {
-    commentsNum = 0;
-  }
-//////////////////////////////////////////
+
+  
+  let commentsNum = JSON.parse(comments).length;
+  let likesNum = JSON.parse(likes).length;
+
 
 
   const navigateDetails = () => {

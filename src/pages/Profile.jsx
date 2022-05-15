@@ -91,6 +91,8 @@ const StyledBox = styled(Box)`
 const StyledButton = styled(Button)`
   background-color: #06ffc3;
   color: white;
+  position: static;
+  width: 200px;
 
   &:hover {
     background-color: #e7007e;
