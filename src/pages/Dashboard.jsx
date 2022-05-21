@@ -34,4 +34,5 @@ const StyledContainer = styled(Container)`
   gap: 30px;
   background-color: #000000;
   border-radius: 20px;
+  min-width: 350px;
 `;

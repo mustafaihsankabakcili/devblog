@@ -12,11 +12,13 @@ import Details from "../pages/Details";
 import PrivateRouter from './PrivateRouter';
 
 
+
 const AppRouter = () => {
   return (
     <Router>
       <Navbar />
       <Routes>
+        {/* Router */}
         <Route path="/devblog/" element={<Dashboard />} />
         <Route path="/devblog/about" element={<About />} />
         <Route path="/devblog/login" element={<Login />} />
@@ -35,14 +37,9 @@ const AppRouter = () => {
         <Route path="/devblog/details/:id" element={<PrivateRouter />}>
          <Route path="" element={<Details />} />
         </Route>
-        
-        {/* <Route path="/newblog" element={<NewBlog />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/updateblog" element={<UpdateBlog />} />
-        <Route path="/details" element={<Details />} /> */}
-
       </Routes>
     </Router>
+    
   );
 };
 

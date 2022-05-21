@@ -35,7 +35,9 @@ export default function BlogCard({ ...blog }) {
   return (
     <Card
       sx={{
-        maxWidth: 325,
+        width: 325,
+        minWidth: 325,
+        height: 475,
         bgcolor: "#FFFFFF",
         borderRadius: "20px",
         padding: "15px",
@@ -63,27 +65,29 @@ export default function BlogCard({ ...blog }) {
       <CardMedia
         component="img"
         height="194"
-        style={{ border: "5px solid silver", borderRadius: "15px" }}
+        style={{ border: "5px solid silver", borderRadius: "15px", width: '100%', height: '200px' }}
         image={imgUrl}
         alt="blog_photo"
       />
-      <CardContent>
+      <CardContent style={{width: '100%', height: '120px'}}>
         <h3>{title}</h3>
         <Typography variant="body2" color="text.secondary">
           {content.substring(0, 100)}...
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions >
         <IconButton
           aria-label="add to favorites"
-          sx={{ position: "static", color: "#E7007E" }}
+          disableRipple
+          sx={{position: 'static', color: "#E7007E" }}
         >
           <FavoriteIcon />
         </IconButton>
         <p>{likesNum}</p>
         <IconButton
-          aria-label="share"
-          sx={{ position: "static", color: "#E7007E" }}
+          aria-label="comment"
+          disableRipple
+          sx={{position: 'static', color: "#E7007E" }}
         >
           <ModeCommentIcon />
         </IconButton>
