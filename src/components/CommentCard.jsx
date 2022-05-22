@@ -18,7 +18,7 @@ const CommentCard = ({ comment }) => {
       <h4>{displayName}</h4>
       <h4>{commentTitle}</h4>
       <p>{commentText}</p>
-      <p>{commentDate}</p>
+      <p>{commentDate.replace(',', '.').replace('/', '.')}</p>
     </StyledBox>
   );
 };
@@ -38,6 +38,7 @@ const StyledBox = styled(Box)`
 
   img {
     width: 35px;
+    height: 35px;
     border-radius: 50px;
   }
 

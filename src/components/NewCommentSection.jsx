@@ -19,7 +19,6 @@ const NewCommentSection = ({
   const [commentTitle, setCommentTitle] = useState("");
   const [comment, setComment] = useState("");
 
-
   const handleNewComment = (e) => {
     e.preventDefault();
 
@@ -38,6 +37,7 @@ const NewCommentSection = ({
     setComment("");
     handleCommentAdderToggle(!isCommentAdderOpen);
   };
+
 
 
   return (

@@ -129,7 +129,7 @@ const About = () => {
         {displayName}
       </Typography>
       <Typography variant="body2" color="white">
-        {date}
+        {date.replace(',', '.').replace('/', '.')}
       </Typography>
 
       <StyledButton variant="contained" type="button" onClick={handleBack}>
@@ -191,6 +191,7 @@ const StyledContainer = styled(Container)`
   }
   img {
     width: 65%;
+    height: 450px;
     border-radius: 20px;
   }
 
