@@ -6,6 +6,19 @@ const CommentCard = ({ comment }) => {
   const [displayName, uid, photoURL, commentDate, commentTitle, commentText] =
     comment;
 
+  const editedDate = commentDate
+    .replace(",", ".")
+    .replace("/", ".")
+    .split(".")
+    .map((date) => {
+      if (date.length !== 2 && date.length !== 4) {
+        date = "0" + date;
+      }
+
+      return date;
+    })
+    .join(".");
+
   return (
     <StyledBox>
       {photoURL ? (
@@ -18,7 +31,7 @@ const CommentCard = ({ comment }) => {
       <h4>{displayName}</h4>
       <h4>{commentTitle}</h4>
       <p>{commentText}</p>
-      <p>{commentDate.replace(',', '.').replace('/', '.')}</p>
+      <p>{editedDate}</p>
     </StyledBox>
   );
 };

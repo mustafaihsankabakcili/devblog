@@ -97,6 +97,19 @@ const About = () => {
     }
   };
 
+  const editedDate = date
+    .replace(",", ".")
+    .replace("/", ".")
+    .split(".")
+    .map((date) => {
+      if (date.length !== 2 && date.length !== 4) {
+        date = "0" + date;
+      }
+
+      return date;
+    })
+    .join(".");
+
   return (
     <StyledContainer>
       {currentUser.uid === uid && (
@@ -129,7 +142,7 @@ const About = () => {
         {displayName}
       </Typography>
       <Typography variant="body2" color="white">
-        {date.replace(',', '.').replace('/', '.')}
+        {editedDate}
       </Typography>
 
       <StyledButton variant="contained" type="button" onClick={handleBack}>
@@ -195,7 +208,7 @@ const StyledContainer = styled(Container)`
     border-radius: 20px;
   }
 
-  p{
+  p {
     color: white;
   }
 `;

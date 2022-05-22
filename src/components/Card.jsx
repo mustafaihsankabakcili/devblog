@@ -22,15 +22,25 @@ export default function BlogCard({ ...blog }) {
     likes,
   } = blog;
 
-  
   let commentsNum = JSON.parse(comments).length;
   let likesNum = JSON.parse(likes).length;
-
-
 
   const navigateDetails = () => {
     navigate(`/devblog/details/${id}`, { state: { blog } });
   };
+
+  const editedDate = date
+    .replace(",", ".")
+    .replace("/", ".")
+    .split(".")
+    .map((date) => {
+      if (date.length !== 2 && date.length !== 4) {
+        date = "0" + date;
+      }
+
+      return date;
+    })
+    .join(".");
 
   return (
     <Card
@@ -60,26 +70,31 @@ export default function BlogCard({ ...blog }) {
           </Avatar>
         }
         title={displayName}
-        subheader={date}
+        subheader={editedDate}
       />
       <CardMedia
         component="img"
         height="194"
-        style={{ border: "5px solid silver", borderRadius: "15px", width: '100%', height: '200px' }}
+        style={{
+          border: "5px solid silver",
+          borderRadius: "15px",
+          width: "100%",
+          height: "200px",
+        }}
         image={imgUrl}
         alt="blog_photo"
       />
-      <CardContent style={{width: '100%', height: '120px'}}>
+      <CardContent style={{ width: "100%", height: "120px" }}>
         <h3>{title}</h3>
         <Typography variant="body2" color="text.secondary">
           {content.substring(0, 100)}...
         </Typography>
       </CardContent>
-      <CardActions >
+      <CardActions>
         <IconButton
           aria-label="add to favorites"
           disableRipple
-          sx={{position: 'static', color: "#E7007E" }}
+          sx={{ position: "static", color: "#E7007E" }}
         >
           <FavoriteIcon />
         </IconButton>
@@ -87,7 +102,7 @@ export default function BlogCard({ ...blog }) {
         <IconButton
           aria-label="comment"
           disableRipple
-          sx={{position: 'static', color: "#E7007E" }}
+          sx={{ position: "static", color: "#E7007E" }}
         >
           <ModeCommentIcon />
         </IconButton>
